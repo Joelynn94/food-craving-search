@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font awesome link-->
+    <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
     <!-- Boostrap Link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Our style sheet link -->
@@ -11,22 +13,35 @@
     <title>Food Cravings Search App</title>
 </head>
 <body>
-        <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+
+    <main>
+        <section class="section bg-primary overlay-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-md-center">
+                        <h1 class="display-2">Find your food craving</h1>
+                    </div>
+                </div>
+                <form class="row mt-5 bg-light contain">
+                    <div class="card card-body">
+                        <form class="form-inline align-items-center">
+    
+                            <div class="input-group md-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="far fa-search"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Enter zip code" aria-label="Enter zip code">
+                            </div>
+                        
+                          
+                            <button type="submit" class="btn btn-primary mb-2">Find Food</button>
+                        </form>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </section>
+    </main>
     
 
     <!-- jquery CDN link -->
