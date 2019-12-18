@@ -5,7 +5,7 @@ var settings = {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
-		"x-rapidapi-key": "bc537ea7d1msh93abd71cf6a16a9p1cc331jsn99a8e1f89000"
+		"x-rapidapi-key": ""
 	}
 }
 
