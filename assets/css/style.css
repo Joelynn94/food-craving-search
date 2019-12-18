@@ -1,3 +1,10 @@
+/****************
+Base Styles
+*****************/
+* {
+    box-sizing: border-box;
+}
+
 img {
     width: 100%;
 }
@@ -25,11 +32,37 @@ img {
     z-index: 0;
 }
 
-.input-group-text{
+.input-group-text {
     background-color:rgba(0, 0, 0, 0) !important;
 }
 
-.contain{
+.contain {
     max-width: 700px;
     margin: 0 auto;
 }
+
+.btn-full-width {
+    width: 100% !important;
+}
+
+
+
+/****************
+Media Queries 
+*****************/
+
+@media only screen and (max-width: 768px){
+    .btn-full-width {
+        margin-top: 1rem;
+    }
+
+    .contain {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .display-2 {
+        font-size: 4.5rem;
+    }
+}
+
