@@ -45,6 +45,24 @@ img {
     width: 100% !important;
 }
 
+.food-image_container {
+    margin-left: 1rem;
+    display: inline-block;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+}
+
+.food-image {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
 
 
 /****************
