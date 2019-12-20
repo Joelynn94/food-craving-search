@@ -1,14 +1,35 @@
-var settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://us-restaurant-menus.p.rapidapi.com/menuitems/search?distance=10&lat=41.4993&page=1&q=thai&lon=-81.6944",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
-		"x-rapidapi-key": "1e75734330msh4f18a06f7943073p1c5894jsn9dec4fab849c"
+function getSettings(zip){
+	return  {
+		"async": true,
+		"crossDomain": true,
+		 "url": `https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/${zip}`,
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
+			"x-rapidapi-key": ""
+		}
 	}
 }
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
+$("#zipCode").keypress(function(event) { 
+	
+	if (event.keyCode === 13) { 
+		event.preventDefault();
+		$("#searchBtn").click(); 
+	} 
+}); 
+
+$("#searchBtn").on("click", function() {
+	event.preventDefault();
+	
+	// get the value of the input from user
+	const zipCode = $("#zipCode").val();
+	// setting the api url
+	//let queryUrl = "https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/" + zipCode;
+	
+	// clear input box
+	$("#zipCode").val("");
+
+	$.ajax(getSettings(zipCode)).then(res => console.log(res))
+		
 });
