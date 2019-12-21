@@ -6,7 +6,7 @@ function getSettings(zip){
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
-			"x-rapidapi-key": ""
+			"x-rapidapi-key": "ae4b491594mshe5191aa0d24709dp16f364jsnbd5633bebe54"
 		}
 	}
 }
