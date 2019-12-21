@@ -55,13 +55,13 @@ img {
     background-color: #fff;
     background-clip: border-box;
     border-radius: .25rem;
+    width: 150px;
+    height: 150px;
+
 }
 
 .food-image {
-    vertical-align: middle;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    border-radius: 30px;
 }
 
 
