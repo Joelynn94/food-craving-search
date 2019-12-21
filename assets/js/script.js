@@ -24,12 +24,23 @@ $("#searchBtn").on("click", function() {
 	
 	// get the value of the input from user
 	const zipCode = $("#zipCode").val();
-	// setting the api url
-	//let queryUrl = "https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/" + zipCode;
+
 	
 	// clear input box
 	$("#zipCode").val("");
 
 	$.ajax(getSettings(zipCode)).then(res => console.log(res))
+
+	const apiKey = "&key=AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg";
+	// setting the api url
+	let queryUrl = "https://maps.googleapis.com/maps/api/geocode/json?&" + "components=postal_code:" + zipCode + apiKey;
+
+
+	$.ajax({
+		url: queryUrl
+	}).then(function(response) {
+
+		console.log(response);
+	})
 		
 });
