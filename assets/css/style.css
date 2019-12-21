@@ -1,0 +1,86 @@
+/****************
+Base Styles
+*****************/
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+.section {
+    position: relative;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    background-image: url("/assets/img/burger-with-fried-fries-on-black-plate-with-sauce-on-the-1199957.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */ 
+    height: 100vh;
+}
+
+.overlay-dark:before {
+    position: absolute;
+    content: "";
+    background: #2a354f;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: .5;
+    z-index: 0;
+}
+
+.input-group-text {
+    background-color:rgba(0, 0, 0, 0) !important;
+}
+
+.contain {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.btn-full-width {
+    width: 100% !important;
+}
+
+.food-image_container {
+    margin-left: 1rem;
+    display: inline-block;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+}
+
+.food-image {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+
+/****************
+Media Queries 
+*****************/
+
+@media only screen and (max-width: 768px){
+    .btn-full-width {
+        margin-top: 1rem;
+    }
+
+    .contain {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .display-2 {
+        font-size: 4.5rem;
+    }
+}
+

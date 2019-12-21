@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font awesome link-->
+    <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
+    <!-- Boostrap Link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Our style sheet link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Food Cravings Search App</title>
+</head>
+<body>
+
+    <!-- Start main content -->
+    <main>
+        <!-- Start new section -->
+        <section class="section bg-primary overlay-dark text-white">
+            <!-- Main container -->
+            <div class="container">
+                <!-- Start new row -->
+                <div class="row">
+                    <div class="col-12 text-md-center">
+                        <h1 class="display-2">Find your food craving</h1>
+                    </div>
+                </div>
+                <!-- End row -->
+
+                <!-- Form input group -->
+                <!-- Start new row -->
+                <div class="row mt-5 bg-light contain">
+                    <div class="card card-body">
+                        <form class="form-inline align-items-center">
+    
+                            <div class="col-md-8">
+                                <div class="input-group md-2">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i class="far fa-search"></i></span>
+                                    </div>
+                                    <input type="text" id="zipCode" class="form-control" placeholder="Enter zip code" aria-label="Enter zip code">
+                                </div>
+                            </div>
+                          
+                            <div class="col">
+                                <button type="submit" id="searchBtn" class="btn btn-primary btn-full-width">Find Food</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- End row -->
+                <!-- End form input group -->
+
+            </div>
+            <!-- End main container -->
+        </section>
+        <!-- End section -->
+
+        <!-- Start new section -->
+        <section>
+            <div class="food-image_container">
+                <img class="food-image" src="./assets/img/american.jpeg" class="rounded" alt="american">
+                <p class="text-center">American</p>
+            </div>
+            <div class="food-image_container">
+                <img class="food-image" src="./assets/img/burger.jpeg" class="rounded" alt="burger">
+                <p class="text-center">Burger</p>
+            </div>
+        </section>
+        <!-- End section -->
+    </main>
+    <!-- End main content-->
+    
+
+    <!-- jquery CDN link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Our javascript link -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
