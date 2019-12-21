@@ -13,7 +13,7 @@ img {
     position: relative;
     padding-top: 7rem;
     padding-bottom: 7rem;
-    background-image: url("/assets/img/burger-with-fried-fries-on-black-plate-with-sauce-on-the-1199957.jpg");
+    background-image: url("/assets/img/background.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */ 
