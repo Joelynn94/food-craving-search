@@ -45,6 +45,27 @@ $("#searchBtn").on("click", function() {
 		
 });
 
+// function to get the value of the food item the user is wanting
+function searchMenuItems() {
+
+	// get the value of the input from user
+	const menuItem = $("#menuItem").val();
+	
+	// clear input box
+	$(menuItem).val("");
+
+	const menuUrl = "https://us-restaurant-menus.p.rapidapi.com/menuitems/search?q=sub";
+
+	$.ajax({
+		url: menuUrl
+	}).then(function(response) {
+
+		console.log(response);
+	})
+}
+
+$("#menuItem").on("click", searchMenuItems);
+
 
 // would like to add a search by city function
 // need to hide initial landing page div and show everything else
