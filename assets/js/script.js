@@ -25,21 +25,33 @@ $("#searchBtn").on("click", function(event) {
 	// get the value of the input from user
 	const zipCode = $("#zipCode").val();
 
-	
 	// clear input box
 	$("#zipCode").val("");
 
-	$.ajax(getSettings(zipCode)).then(res => console.log(res))
+	// ajax call using XYZmenus api
+	const searchZipCode = {
+		"async": true,
+		"crossDomain": true,
+		"url": `https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/${zipCode}`,
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
+			"x-rapidapi-key": "ae4b491594mshe5191aa0d24709dp16f364jsnbd5633bebe54"
+		}
+	}
 
-	const apiKey = "&key=AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg";
+	$.ajax(searchZipCode).done(function (response) {
+		console.log(response);
+	});
+
+	// ajax call using Google api
+	const apiKey = "&key=" + "AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg";
 	// setting the api url
 	let zipUrl = "https://maps.googleapis.com/maps/api/geocode/json?&" + "components=postal_code:" + zipCode + apiKey;
-
 
 	$.ajax({
 		url: zipUrl
 	}).then(function(response) {
-
 		console.log(response);
 	})
 		
@@ -55,7 +67,7 @@ $("#menuSearchBtn").on("click", function(event) {
 	// clear input box
 	$(menuSearch).val("");
 
-	var settings = {
+	const menuSearchItem = {
 		"async": true,
 		"crossDomain": true,
 		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?q=${menuSearch}`,
@@ -66,7 +78,7 @@ $("#menuSearchBtn").on("click", function(event) {
 		}
 	}
 	
-	$.ajax(settings).done(function (response) {
+	$.ajax(menuSearchItem).done(function (response) {
 		console.log(response);
 	});
 
