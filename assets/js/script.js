@@ -19,7 +19,7 @@ $("#zipCode").keypress(function(event) {
 	} 
 }); 
 
-$("#searchBtn").on("click", function() {
+$("#searchBtn").on("click", function(event) {
 	event.preventDefault();
 	
 	// get the value of the input from user
@@ -33,11 +33,11 @@ $("#searchBtn").on("click", function() {
 
 	const apiKey = "&key=AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg";
 	// setting the api url
-	let queryUrl = "https://maps.googleapis.com/maps/api/geocode/json?&" + "components=postal_code:" + zipCode + apiKey;
+	let zipUrl = "https://maps.googleapis.com/maps/api/geocode/json?&" + "components=postal_code:" + zipCode + apiKey;
 
 
 	$.ajax({
-		url: queryUrl
+		url: zipUrl
 	}).then(function(response) {
 
 		console.log(response);
@@ -45,26 +45,32 @@ $("#searchBtn").on("click", function() {
 		
 });
 
-// function to get the value of the food item the user is wanting
-function searchMenuItems() {
+
+$("#menuSearchBtn").on("click", function(event) {
+	event.preventDefault();
 
 	// get the value of the input from user
-	const menuItem = $("#menuItem").val();
+	const menuSearch = $("#menuSearch").val();
 	
 	// clear input box
-	$(menuItem).val("");
+	$(menuSearch).val("");
 
-	const menuUrl = "https://us-restaurant-menus.p.rapidapi.com/menuitems/search?q=sub";
-
-	$.ajax({
-		url: menuUrl
-	}).then(function(response) {
-
+	var settings = {
+		"async": true,
+		"crossDomain": true,
+		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?q=${menuSearch}`,
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
+			"x-rapidapi-key": "bc537ea7d1msh93abd71cf6a16a9p1cc331jsn99a8e1f89000"
+		}
+	}
+	
+	$.ajax(settings).done(function (response) {
 		console.log(response);
-	})
-}
+	});
 
-$("#menuItem").on("click", searchMenuItems);
+});
 
 
 // would like to add a search by city function
