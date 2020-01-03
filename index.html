@@ -47,35 +47,27 @@
                                 <button type="submit" id="searchBtn" class="btn btn-primary btn-full-width">Find Food</button>
                             </div>
                         </form>
-                    </div>
-                </div>
-                <!-- End row -->
-                <!-- End form input group -->
-
-                <!-- Form input group city -->
-                <!-- Start new row -->
-                <!-- Try to align left? ask Joe -->
-                <div class="row mt-5 bg-light contain">
-                    <div class="card card-body">
-                        <form class="form-inline align-items-left">
+                        <form class="form-inline align-items-center">
     
                             <div class="col-md-8">
                                 <div class="input-group md-2">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-pizza-slice"></i></span>
                                     </div>
-                                    <input type="text" id="City" class="form-control" placeholder="Enter destination city" aria-label="Enter destination city">
+                                    <input type="text" id="city" class="form-control" placeholder="Enter destination city" aria-label="Enter zip code">
                                 </div>
                             </div>
                           
                             <div class="col">
-                                <button type="submit" id="cityBtn" class="btn btn-primary btn-full-width">Enter Destination City</button>
+                                <button type="submit" id="searchBtn" class="btn btn-primary btn-full-width">Find Food</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <!-- End row -->
-                <!-- End form input group city -->
+                <!-- End form input group -->
+
+               
 
             </div>
             <!-- End main container -->
@@ -95,13 +87,24 @@
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-hamburger"></i></span>
                                     </div>
                                     <input type="text" id="menuSearch" class="form-control" placeholder="Search your craving" aria-label="Search your craving">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                             Dropdown
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <button class="dropdown-item" type="button">Distance</button>
+                                            <button class="dropdown-item" type="button">Rating</button>
+                                        </div>
+                                      </div>
                                 </div>
                             </div>
                         
                             <div class="col">
                                 <button type="submit" id="menuSearchBtn" class="btn btn-primary btn-full-width">Find Food</button>
                             </div>
+                            
                         </form>
+                        
                     </div>
                 </div>
                 <!-- Start new row -->
