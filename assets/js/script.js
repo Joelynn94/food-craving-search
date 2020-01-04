@@ -33,6 +33,21 @@ $("#searchBtn").on("click", function(event) {
 		console.log(response);
 	});
 
+	var settings = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://us-restaurant-menus.p.rapidapi.com/menuitems/search?distance=10&q=pizza",
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
+			"x-rapidapi-key": "bc537ea7d1msh93abd71cf6a16a9p1cc331jsn99a8e1f89000"
+		}
+	}
+	
+	$.ajax(settings).done(function (response) {
+		console.log(response);
+	});
+
 	// ajax call using Google api
 	const apiKey = "&key=" + "AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg";
 	// setting the api url

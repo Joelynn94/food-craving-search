@@ -42,12 +42,15 @@ img {
 }
 
 .contain-menu-search {
-    max-width: 500px;
     margin: 0 auto;
 }
 
 .btn-full-width {
     width: 100% !important;
+}
+
+.negative-margin-left {
+    margin-left: -30px;
 }
 
 .food-image_container {
