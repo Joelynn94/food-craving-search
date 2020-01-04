@@ -1,3 +1,8 @@
+function activatePlacesSearch(){
+	let input = document.getElementById('zipCode');
+	let autocomplete = new google.maps.places.Autocomplete(input);
+}
+
 
 $("#zipCode").keypress(function(event) { 
 	
