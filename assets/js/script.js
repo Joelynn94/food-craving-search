@@ -1,3 +1,5 @@
+/*
+DO NOT UNCOMMENT - THIS CODE DOES NOT WORK
 function activatePlacesSearch() {
 	let input = document.getElementById('searchCity');
 	let autocomplete = new google.maps.places.Autocomplete(input, {types: ['(cities)']});
@@ -10,9 +12,9 @@ function activatePlacesSearch() {
 		console.log(place);
 	});
 }
+*/
 
-
-$("#searchCity").keypress(function(event) { 
+$("#searchZip").keypress(function(event) { 
 	
 	if (event.keyCode === 13) { 
 		event.preventDefault();
@@ -25,16 +27,16 @@ $("#searchBtn").on("click", function(event) {
 	event.preventDefault();
 	
 	// get the value of the input from user
-	const city = $("#searchCity").val();
+	const zip = $("#searchZip").val();
 
 	// clear input box
-	$("#searchCity").val("");
+	$("#searchZip").val("");
 
 	// ajax call using XYZmenus api
-	const searchCity = {
+	const searchZip = {
 		"async": true,
 		"crossDomain": true,
-		"url": `https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/${city}`,
+		"url": `https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/${zip}`,
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
@@ -42,7 +44,7 @@ $("#searchBtn").on("click", function(event) {
 		}
 	}
 
-	$.ajax(searchCity).done(function (response) {
+	$.ajax(searchZip).done(function (response) {
 		console.log(response);
 	});
 
