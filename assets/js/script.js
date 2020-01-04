@@ -1,7 +1,19 @@
-// function activatePlacesSearch() {
-// 	let input = document.getElementById('zipCode');
-// 	let autocomplete = new google.maps.places.Autocomplete(input);
-// }
+function activatePlacesSearch() {
+	let input = document.getElementById('zipCode');
+	let autocomplete = new google.maps.places.Autocomplete(input, {types: ['(cities)']});
+
+	google.maps.event.addListener(autocomplete, 'place_changed', function(){
+		let place = autocomplete.getPlace();
+		console.log(place.formatted_address);
+		console.log(place.url);
+		console.log(place.id);
+		console.log(place);
+	})
+}
+
+function activatePlacesServices() {
+	let service = new google.maps
+}
 
 
 $("#zipCode").keypress(function(event) { 
@@ -53,6 +65,7 @@ $("#searchBtn").on("click", function(event) {
 		console.log(response);
 	});
 
+	/*
 	// ajax call using Google api
 	const apiKey = "&key=" + "AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg";
 	// setting the api url
@@ -63,6 +76,15 @@ $("#searchBtn").on("click", function(event) {
 	}).then(function(response) {
 		console.log(response);
 	})
+	*/
+	let placesDetails = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg"
+	$.ajax({
+		url: placesDetails,
+		method: "GET"
+	}).then(function(response) {
+		console.log(response);
+	})
+
 		
 });
 
