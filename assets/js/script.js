@@ -1,22 +1,18 @@
 function activatePlacesSearch() {
-	let input = document.getElementById('zipCode');
+	let input = document.getElementById('searchCity');
 	let autocomplete = new google.maps.places.Autocomplete(input, {types: ['(cities)']});
 
 	google.maps.event.addListener(autocomplete, 'place_changed', function(){
 		let place = autocomplete.getPlace();
 		console.log(place.formatted_address);
 		console.log(place.url);
-		console.log(place.id);
+		console.log(place.reference);
 		console.log(place);
-	})
-}
-
-function activatePlacesServices() {
-	let service = new google.maps
+	});
 }
 
 
-$("#zipCode").keypress(function(event) { 
+$("#searchCity").keypress(function(event) { 
 	
 	if (event.keyCode === 13) { 
 		event.preventDefault();
@@ -29,16 +25,16 @@ $("#searchBtn").on("click", function(event) {
 	event.preventDefault();
 	
 	// get the value of the input from user
-	const zipCode = $("#zipCode").val();
+	const city = $("#searchCity").val();
 
 	// clear input box
-	$("#zipCode").val("");
+	$("#searchCity").val("");
 
 	// ajax call using XYZmenus api
-	const searchZipCode = {
+	const searchCity = {
 		"async": true,
 		"crossDomain": true,
-		"url": `https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/${zipCode}`,
+		"url": `https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/${city}`,
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
@@ -46,7 +42,7 @@ $("#searchBtn").on("click", function(event) {
 		}
 	}
 
-	$.ajax(searchZipCode).done(function (response) {
+	$.ajax(searchCity).done(function (response) {
 		console.log(response);
 	});
 
@@ -77,14 +73,16 @@ $("#searchBtn").on("click", function(event) {
 		console.log(response);
 	})
 	*/
-	let placesDetails = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg"
+
+	/*
+	let placesDetails = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place.id}&key=AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg`
 	$.ajax({
 		url: placesDetails,
 		method: "GET"
 	}).then(function(response) {
 		console.log(response);
 	})
-
+	*/
 		
 });
 
