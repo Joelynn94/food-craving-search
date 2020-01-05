@@ -19,7 +19,7 @@ $("#searchZip").keypress(function(event) {
 	if (event.keyCode === 13) { 
 		event.preventDefault();
 		$("#searchBtn").click(); 
-		$("#menuSearchBtn").click();
+		$("#menuSearch").click();
 	} 
 }); 
 
@@ -27,7 +27,7 @@ $("#searchBtn").on("click", function(event) {
 	event.preventDefault();
 	
 	// get the value of the input from user
-	const zip = $("#searchZip").val();
+	const zip = $("#searchZip").val().trim();
 
 	// clear input box
 	$("#searchZip").val("");
@@ -46,6 +46,7 @@ $("#searchBtn").on("click", function(event) {
 
 	$.ajax(searchZip).done(function (response) {
 		console.log(response);
+		console.log(response.geo);
 	});
 
 	var settings = {
@@ -93,7 +94,7 @@ $("#menuSearchBtn").on("click", function(event) {
 	event.preventDefault();
 
 	// get the value of the input from user
-	const menuSearch = $("#menuSearch").val();
+	const menuSearch = $("#menuSearch").val().trim();
 	
 	// clear input box
 	$(menuSearch).val("");
@@ -111,9 +112,19 @@ $("#menuSearchBtn").on("click", function(event) {
 	
 	$.ajax(menuSearchItem).done(function (response) {
 		console.log(response);
+
+
 	});
 
 });
+
+    // Creating a div to hold the restaurant_name
+	let restaurantDiv = $("<div class='restaurant'>");
+	// Storing the restaurant name
+	let restaurantName = response.restaurant_name;
+	// Creating an element to have the restaurant name displayed
+	let pOne = $("<p>").text("restaurant_name: " + Name);
+
 
 
 // would like to add a search by city function
