@@ -60,16 +60,15 @@ function getRestaurantApi(zip) {
 	// ajax call of the response we get back from the api
 	$.ajax(searchZip).done(function (response) {
 		console.log(response);
-		console.log(response.result.data[0].geo.lat);
-		console.log(response.result.data[0].geo.lon);
+		getLatAndLon(response.result.data[0].geo.lat, response.result.data[0].geo.lon);
 	});
 }
 
-function distanceFilter() {
+function distanceFilter(distanceMiles) {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://us-restaurant-menus.p.rapidapi.com/menuitems/search?distance=10&&q=pizza&lon=-81.298864",
+		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?distance=${distanceMiles}`,
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
@@ -79,34 +78,38 @@ function distanceFilter() {
 	
 	$.ajax(settings).done(function (response) {
 		console.log(response);
-
-		getLatAndLon(response.result.data[0].geo.lat, response.result.data[0].geo.lon);
 	});
 }
 
-// function getLatAndLon(lat, lon) {
-// 	$.ajax({
-// 		"async": true,
-// 		"crossDomain": true,
-// 		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?lat=${lat}&lon=-${lon}`,
-// 		"method": "GET",
-// 		"headers": {
-// 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
-// 			"x-rapidapi-key": "bc537ea7d1msh93abd71cf6a16a9p1cc331jsn99a8e1f89000"
-// 		}
-// 	});
-// }
+function getLatAndLon(lat, lon) {
+	const searchLatAndLon = {
+		"async": true,
+		"crossDomain": true,
+		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?lat=${lat}&lon=-${lon}`,
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
+			"x-rapidapi-key": "bc537ea7d1msh93abd71cf6a16a9p1cc331jsn99a8e1f89000"
+		}
+	};
+
+	$.ajax(searchLatAndLon).done(function (response) {
+		console.log(response);
+		console.log(response.result.data[0].geo.lat);
+		console.log(response.result.data[0].geo.lon);
+	});
+}
 
 $("#menuSearchBtn").on("click", function(event) {
 	event.preventDefault();
 
 	// get the value of the input from user
-	const menuSearchItem = $("#menuSearch").val().trim();
+	const searchMenuItem = $("#menuSearch").val().trim();
 	
 	// clear input box
 	$(menuSearch).val("");
 
-	getMenuItems(menuSearchItem);
+	distanceFilter(searchMenuItem);
 
 });
 
