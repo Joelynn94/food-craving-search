@@ -64,11 +64,11 @@ function getRestaurantApi(zip) {
 	});
 }
 
-function distanceFilter(searchMenuItem) {
+function distanceFilter(distanceMiles) {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?distance=10&q=${searchMenuItem}`,
+		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?distance=${distanceMiles}`,
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
