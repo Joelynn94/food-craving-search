@@ -14,6 +14,7 @@ function activatePlacesSearch() {
 }
 */
 
+
 $("#searchZip").keypress(function(event) { 
 	
 	if (event.keyCode === 13) { 
@@ -25,10 +26,10 @@ $("#searchZip").keypress(function(event) {
 
 $("#searchBtn").on("click", function(event) {
 	event.preventDefault();
-	
+
 	// get the value of the input from user
 	const zip = $("#searchZip").val().trim();
-
+	
 	// clear input box
 	$("#searchZip").val("");
 
@@ -38,7 +39,13 @@ $("#searchBtn").on("click", function(event) {
 	// remove class of hide from second-display
 	$('.second-display').removeClass('hide');
 
-	// ajax call using XYZmenus api
+	getRestaurantApi(zip);
+		
+});
+
+// function to get the restaurant api info
+function getRestaurantApi(zip) {
+	// setup object and headers to use the restaurant api using RapidAPI
 	const searchZip = {
 		"async": true,
 		"crossDomain": true,
@@ -50,15 +57,19 @@ $("#searchBtn").on("click", function(event) {
 		}
 	}
 
+	// ajax call of the response we get back from the api
 	$.ajax(searchZip).done(function (response) {
 		console.log(response);
-		console.log(response.geo);
+		console.log(response.result.data[0].geo.lat);
+		console.log(response.result.data[0].geo.lon);
 	});
+}
 
+function distanceFilter() {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://us-restaurant-menus.p.rapidapi.com/menuitems/search?distance=10&q=pizza",
+		"url": "https://us-restaurant-menus.p.rapidapi.com/menuitems/search?distance=10&&q=pizza&lon=-81.298864",
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
@@ -68,24 +79,42 @@ $("#searchBtn").on("click", function(event) {
 	
 	$.ajax(settings).done(function (response) {
 		console.log(response);
-	});
-		
-});
 
+		getLatAndLon(response.result.data[0].geo.lat, response.result.data[0].geo.lon);
+	});
+}
+
+// function getLatAndLon(lat, lon) {
+// 	$.ajax({
+// 		"async": true,
+// 		"crossDomain": true,
+// 		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?lat=${lat}&lon=-${lon}`,
+// 		"method": "GET",
+// 		"headers": {
+// 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
+// 			"x-rapidapi-key": "bc537ea7d1msh93abd71cf6a16a9p1cc331jsn99a8e1f89000"
+// 		}
+// 	});
+// }
 
 $("#menuSearchBtn").on("click", function(event) {
 	event.preventDefault();
 
 	// get the value of the input from user
-	const menuSearch = $("#menuSearch").val().trim();
+	const menuSearchItem = $("#menuSearch").val().trim();
 	
 	// clear input box
 	$(menuSearch).val("");
 
-	const menuSearchItem = {
+	getMenuItems(menuSearchItem);
+
+});
+
+function getMenuItems(menuSearchItem) {
+	const menuSearch = {
 		"async": true,
 		"crossDomain": true,
-		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?q=${menuSearch}`,
+		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?q=${menuSearchItem}`,
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
@@ -93,13 +122,12 @@ $("#menuSearchBtn").on("click", function(event) {
 		}
 	}
 	
-	$.ajax(menuSearchItem).done(function (response) {
+	$.ajax(menuSearch).done(function (response) {
 		console.log(response);
 		console.log(response.result.data[0].menu_item_name);
 
 	});
-
-});
+}
 
     // // Creating a div to hold the restaurant_name
 	// let restaurantDiv = $("<div class='restaurant'>");
