@@ -32,6 +32,12 @@ $("#searchBtn").on("click", function(event) {
 	// clear input box
 	$("#searchZip").val("");
 
+	// add class of hide to bg-primary
+	$('.bg-primary').addClass('hide');
+
+	// remove class of hide from second-display
+	$('.second-display').removeClass('hide');
+
 	// ajax call using XYZmenus api
 	const searchZip = {
 		"async": true,
@@ -63,29 +69,6 @@ $("#searchBtn").on("click", function(event) {
 	$.ajax(settings).done(function (response) {
 		console.log(response);
 	});
-
-	/*
-	// ajax call using Google api
-	const apiKey = "&key=" + "AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg";
-	// setting the api url
-	let zipUrl = "https://maps.googleapis.com/maps/api/geocode/json?&" + "components=postal_code:" + zipCode + apiKey;
-
-	$.ajax({
-		url: zipUrl
-	}).then(function(response) {
-		console.log(response);
-	})
-	*/
-
-	/*
-	let placesDetails = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place.id}&key=AIzaSyB9M0pMrT9MNbhJm3B8GdtR5sffF_feCsg`
-	$.ajax({
-		url: placesDetails,
-		method: "GET"
-	}).then(function(response) {
-		console.log(response);
-	})
-	*/
 		
 });
 
@@ -112,18 +95,18 @@ $("#menuSearchBtn").on("click", function(event) {
 	
 	$.ajax(menuSearchItem).done(function (response) {
 		console.log(response);
-
+		console.log(response.result.data[0].menu_item_name);
 
 	});
 
 });
 
-    // Creating a div to hold the restaurant_name
-	let restaurantDiv = $("<div class='restaurant'>");
-	// Storing the restaurant name
-	let restaurantName = response.restaurant_name;
-	// Creating an element to have the restaurant name displayed
-	let pOne = $("<p>").text("restaurant_name: " + Name);
+    // // Creating a div to hold the restaurant_name
+	// let restaurantDiv = $("<div class='restaurant'>");
+	// // Storing the restaurant name
+	// let restaurantName = response.restaurant_name;
+	// // Creating an element to have the restaurant name displayed
+	// let pOne = $("<p>").text("restaurant_name: " + Name);
 
 
 
