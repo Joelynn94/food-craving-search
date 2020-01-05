@@ -63,8 +63,10 @@ img {
     background-color: #fff;
     background-clip: border-box;
     border-radius: .25rem;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+
+    /* position: absolute; */
 
 }
 
@@ -92,3 +94,58 @@ Media Queries
     }
 }
 
+/****************
+Carousel 
+****************/
+/* .carousel {
+    position: relative;
+    height: 100px;
+    width: 80%;
+    margin: 0;
+}
+.carousel_track-container {
+  background-color: lightgreen; 
+  height: 100%;
+  position: relative;
+}
+
+.carousel_track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.carousel_button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: green;
+    border: 2px solid;
+    cursor: pointer;
+    size: 50px;
+
+}
+
+.carousel_button--left{
+ left: -40px
+}
+
+.carousel_button--right{
+    right: -40px;
+}
+
+.carousel_nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.carousel_indicator {
+    border: 0;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: rgba(0,0,0,.3);
+    margin: 0 12px;
+} */
