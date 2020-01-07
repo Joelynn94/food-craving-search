@@ -67,10 +67,7 @@ function getMenuItems(menuSearchItem, lat, lng) {
 	});
 }
 
-// would like to add a search by city function
-// need to hide initial landing page div and show everything else
 // search field for type of food you're craving
-// add a function to find menu items from the US-restaurant api based on the value of the zip code from the google api
 
 /* 
 need to add filters for seach results:
