@@ -7,8 +7,6 @@ Base Styles
 
 img {
     width: 100%;
-
-    height: 20vh;
 }
 
 .show {
@@ -21,8 +19,8 @@ img {
 
 .section {
     position: relative;
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 25rem;
+    padding-bottom: 25rem;
     background-image: url("../img/background.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -95,7 +93,9 @@ img {
 }
 
 .food-image {
-    border-radius: 30px;
+    border-radius: 50px;
+    height: 150px;
+    cursor: pointer;
 }
 
 
@@ -123,14 +123,24 @@ Carousel
 ****************/
 .carousel-indicators{
     position: relative;
-    top: 200px;
-    background: rgba(0,0,0,.3)
+    top: 210px;
+    background: rgba(0,0,0,.2)
 }
 
 .wrapper{
-    background-color: brown;
-    height: 50vh;
+    background-color: gray;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
+
+.wrapper > h2 {
+    color: white;
+}
+
+.dropdown .d-inline-block {
+    margin-left: 50px;
+}
+
 
 /* .carousel {
     position: relative;

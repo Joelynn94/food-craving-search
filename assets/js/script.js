@@ -1,11 +1,11 @@
 // get the value of the city input from user
-const zip = $("#searchZip").val().trim();
+const zip = $("#searchCity").val().trim();
 
 // get the value of the search input from user
 const searchMenuItem = $("#menuSearch").val().trim();
 
 function activatePlacesSearch() {
-	let input = document.getElementById('searchZip');
+	let input = document.getElementById('searchCity');
 	let autocomplete = new google.maps.places.Autocomplete(input, {types: ['(cities)']});
 
 	google.maps.event.addListener(autocomplete, 'place_changed', function(){
@@ -18,7 +18,7 @@ function activatePlacesSearch() {
 	});
 }
 
-$("#searchZip").keypress(function(event) { 
+$("#searchCity").keypress(function(event) { 
 	
 	if (event.keyCode === 13) { 
 		event.preventDefault();
@@ -31,7 +31,7 @@ $("#searchBtn").on("click", function(event) {
 	event.preventDefault();
 	
 	// clear input box
-	$("#searchZip").val("");
+	$("#searchCity").val("");
 
 	// add class of hide to bg-primary
 	$('.bg-primary').addClass('hide');
@@ -72,14 +72,14 @@ function getMenuItems(menuSearchItem, lat, lng) {
 
 			// create html elements for a bootstrap card
 			let col = $("<div>").addClass("col-md-4");
-			let card = $("<div>").addClass("card bg-primary text-white");
+			let card = $("<div>").addClass("card mt-3 bg-light");
 			let body = $("<div>").addClass("card-body p-2");
 
-			let title = $("<h5>").addClass("card-title").text("Restaurant Name: " + result[i].restaurant_name);
+			let title = $("<h4>").addClass("card-title text-dark pb-2").text("Restaurant Name: " + result[i].restaurant_name);
 
 			let img = $("<img>").attr("src", "assets/img/vintage-restaurant.jpg");
 
-			let p1 = $("<p>").addClass("card-text").text("Food: " + result[i].menu_item_name);
+			let p1 = $("<p>").addClass("card-text text-info pt-2").text("Food: " + result[i].menu_item_name);
 
 			// merge together and put on page
 			col.append(card.append(body.append(title, img, p1)));
@@ -88,30 +88,6 @@ function getMenuItems(menuSearchItem, lat, lng) {
 		}
 	});
 }
-
-// function buildHTML(){
-// 	// loop over all 
-// 	for (var i = 0; i < data.list.length; i++) {
-// 		// only look at forecasts around 3:00pm
-// 		if (data.list[i].dt_txt.indexOf("15:00:00") !== -1) {
-// 			// create html elements for a bootstrap card
-// 			var col = $("<div>").addClass("col-md-2");
-// 			var card = $("<div>").addClass("card bg-primary text-white");
-// 			var body = $("<div>").addClass("card-body p-2");
-
-// 			var title = $("<h5>").addClass("card-title").text(new Date(data.list[i].dt_txt).toLocaleDateString());
-
-// 			var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
-
-// 			var p1 = $("<p>").addClass("card-text").text("Temp: " + data.list[i].main.temp_max + " °F");
-// 			var p2 = $("<p>").addClass("card-text").text("Humidity: " + data.list[i].main.humidity + "%");
-
-// 			// merge together and put on page
-// 			col.append(card.append(body.append(title, img, p1, p2)));
-// 			$("#forecast .row").append(col);
-// 		}
-// 	}	
-// }
 
 // would like to add a search by city function
 // need to hide initial landing page div and show everything else
