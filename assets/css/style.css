@@ -44,6 +44,20 @@ img {
 
 .input-group-text {
     background-color:rgba(0, 0, 0, 0) !important;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+
+.input-group {
+    position: relative !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    -ms-flex-align: stretch !important;
+    align-items: stretch !important;
+    width: 100% !important;
 }
 
 .contain {
