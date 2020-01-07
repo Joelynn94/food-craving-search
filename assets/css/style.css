@@ -124,7 +124,9 @@ Carousel
 .carousel-indicators{
     position: relative;
     top: 210px;
-    background: rgba(0,0,0,.2)
+    background: rgba(0,0,0,.2);
+    left: 30% !important;
+    width: 100% !important;
 }
 
 .wrapper{
@@ -142,62 +144,3 @@ Carousel
 }
 
 
-/* .carousel {
-    position: relative;
-    height: 100px;
-    width: 80%;
-    margin: 0;
-    padding: 50px;
-}
-.carousel_track-container {
-  background-color: lightgreen; 
-  height: 100%;
-  position: relative;
-}
-
-.carousel_track {
-    padding: 0;
-    margin: 50px;
-    list-style: none;
-}
-
-.carousel_button {
-    position: absolute;
-   
-    transform: translateY(-50%);
-    background-color: white;
-    color: green;
-    border: 2px solid;
-    cursor: pointer;
-    size: 50px;
-    padding: 10px
-
-}
-
-.carousel_button--left{
- left: -40px
-}
-
-.carousel_button--right{
-    right: -40px;
-}
-
-.carousel_nav {
-    display: flex;
-    justify-content: center;
-    padding: 100px;
-    
-}
-
-.carousel_indicator {
-    border: 0;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    background: rgba(0,0,0,.3);
-    margin: 0 12px;
-}
-
-.carousel_indicator.current-slide {
-    background: rgba(0,0,0.75);
-}   */

@@ -14,7 +14,6 @@ function activatePlacesSearch() {
 		let lat = place.geometry.location.lat();
 		let lng = place.geometry.location.lng();
 
-		getMenuItems(searchMenuItem, lat, lng)
 	});
 }
 
@@ -46,6 +45,8 @@ $("#menuSearchBtn").on("click", function(event) {
 	
 	// clear input box
 	$(menuSearch).val("");
+
+	getMenuItems(searchMenuItem, lat, lng)
 
 });
 
