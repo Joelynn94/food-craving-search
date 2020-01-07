@@ -71,8 +71,8 @@ function menuThing (lat, lng) {
 	
 				// create html elements for a bootstrap card
 				let col = $("<div>").addClass("col-md-4");
-				let card = $("<div>").addClass("card mt-3 bg-light");
-				let body = $("<div>").addClass("card-body p-2");
+				let card = $("<div>").addClass("card mt-3 mb-3 bg-light");
+				let body = $("<div>").addClass("card-body p-4");
 	
 				let title = $("<h4>").addClass("card-title text-dark pb-3 pt-2").text("Restaurant Name: " + result[i].restaurant_name);
 	
