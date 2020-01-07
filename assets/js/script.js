@@ -14,6 +14,7 @@ function activatePlacesSearch() {
 		let lat = place.geometry.location.lat();
 		let lng = place.geometry.location.lng();
 
+		getMenuItems(searchMenuItem, lat, lng);
 	});
 }
 
