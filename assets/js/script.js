@@ -71,18 +71,18 @@ function getMenuItems(menuSearchItem, lat, lng) {
 			console.log(result[i].menu_item_name)
 
 			// create html elements for a bootstrap card
-			let col = $("<div>").addClass("col-md-3");
+			let col = $("<div>").addClass("col-md-4");
 			let card = $("<div>").addClass("card bg-primary text-white");
 			let body = $("<div>").addClass("card-body p-2");
 
 			let title = $("<h5>").addClass("card-title").text("Restaurant Name: " + result[i].restaurant_name);
 
-			// let img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
+			let img = $("<img>").attr("src", "assets/img/vintage-restaurant.jpg");
 
 			let p1 = $("<p>").addClass("card-text").text("Food: " + result[i].menu_item_name);
 
 			// merge together and put on page
-			col.append(card.append(body.append(title, p1)));
+			col.append(card.append(body.append(title, img, p1)));
 			$("#display").append(col);
 
 		}
