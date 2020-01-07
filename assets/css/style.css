@@ -9,11 +9,19 @@ img {
     width: 100%;
 }
 
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
 .section {
     position: relative;
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-    background-image: url("/assets/img/burger-with-fried-fries-on-black-plate-with-sauce-on-the-1199957.jpg");
+    padding-top: 25rem;
+    padding-bottom: 25rem;
+    background-image: url("../img/background.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */ 
@@ -34,6 +42,20 @@ img {
 
 .input-group-text {
     background-color:rgba(0, 0, 0, 0) !important;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+
+.input-group {
+    position: relative !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    -ms-flex-align: stretch !important;
+    align-items: stretch !important;
+    width: 100% !important;
 }
 
 .contain {
@@ -41,8 +63,16 @@ img {
     margin: 0 auto;
 }
 
+.contain-menu-search {
+    margin: 0 auto;
+}
+
 .btn-full-width {
     width: 100% !important;
+}
+
+.negative-margin-left {
+    margin-left: -30px;
 }
 
 .food-image_container {
@@ -55,13 +85,17 @@ img {
     background-color: #fff;
     background-clip: border-box;
     border-radius: .25rem;
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+
 }
 
 .food-image {
-    vertical-align: middle;
-    width: 150px;
+    border-radius: 50px;
     height: 150px;
-    border-radius: 50%;
+    cursor: pointer;
 }
 
 
@@ -83,4 +117,30 @@ Media Queries
         font-size: 4.5rem;
     }
 }
+
+/****************
+Carousel 
+****************/
+.carousel-indicators{
+    position: relative;
+    top: 210px;
+    background: rgba(0,0,0,.2);
+    left: 30% !important;
+    width: 100% !important;
+}
+
+.wrapper{
+    background-color: #343a40;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.wrapper > h2 {
+    color: white;
+}
+
+.dropdown .d-inline-block {
+    margin-left: 50px;
+}
+
 

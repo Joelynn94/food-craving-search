@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Font awesome link-->
-    <script src="https://kit.fontawesome.com/ca89a4b9f5.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/afb09f7670.js" crossorigin="anonymous"></script>
     <!-- Boostrap Link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Our style sheet link -->
     <link rel="stylesheet" href="assets/css/style.css">
+    
     <title>Food Cravings Search App</title>
+    
 </head>
+
 <body>
 
     <!-- Start main content -->
@@ -33,24 +39,30 @@
                 <div class="row mt-5 bg-light contain">
                     <div class="card card-body">
                         <form class="form-inline align-items-center">
-    
+
                             <div class="col-md-8">
                                 <div class="input-group md-2">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="far fa-search"></i></span>
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="fas fa-utensils"></i></span>
                                     </div>
-                                    <input type="text" id="zipCode" class="form-control" placeholder="Enter zip code" aria-label="Enter zip code">
+                                    <input type="text" id="searchCity" class="form-control"
+                                        placeholder="Search a city">
                                 </div>
                             </div>
-                          
+
                             <div class="col">
-                                <button type="submit" id="searchBtn" class="btn btn-primary btn-full-width">Find Food</button>
+                                <button type="submit" id="searchBtn" class="btn btn-primary btn-full-width">Find
+                                    Food</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
                 <!-- End row -->
                 <!-- End form input group -->
+
+
 
             </div>
             <!-- End main container -->
@@ -59,23 +71,223 @@
 
         <!-- Start new section -->
         <section>
-            <div class="food-image_container">
-                <img class="food-image" src="./assets/img/american.jpeg" class="rounded" alt="american">
-                <p class="text-center">American</p>
+            <div class="container second-display hide">
+                <div class="row">
+                    <div class="card-body contain-menu-search">
+                        <form class="form-inline align-items-center">
+
+                            <div class="col-md-8">
+                                <div class="input-group md-2">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="fas fa-hamburger"></i></span>
+                                    </div>
+                                    <input type="text" id="menuSearch" class="form-control"
+                                        placeholder="Search for restaurant" aria-label="Search your craving">
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="negative-margin-left">
+                                    <button type="submit" id="menuSearchBtn" class="btn btn-primary btn-full-width">Find
+                                        Restaurant</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="dropdown d-inline-block">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Distance
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <button class="dropdown-item" type="button">5 Miles</button>
+                                        <button class="dropdown-item" type="button">10 Miles</button>
+                                        <button class="dropdown-item" type="button">15 Miles</button>
+                                        <button class="dropdown-item" type="button">20 Miles</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- Start new row -->
+                <div class="wrapper">
+                    <h2 class="text-center">Food Options</h2>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                            <li data-target="#myCarousel" data-slide-to="4"></li>
+                            <li data-target="#myCarousel" data-slide-to="5"></li>
+                        </ol>
+                
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/american.jpeg" class="rounded" alt="american">
+                                        <p class="text-center text-white">American</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/burger.jpeg" class="rounded" alt="burger">
+                                        <p class="text-center text-white">Burgers</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/chinese.jpg" class="rounded" alt="chinese">
+                                        <p class="text-center text-white">Chinese</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/indian.jpeg" class="rounded" alt="indian">
+                                        <p class="text-center text-white">Indian</p>
+                                    </div>
+                                </div>    
+                            </div>
+                            
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/italian.jpg" class="rounded" alt="italian">
+                                        <p class="text-center text-white">Italian</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/mexican.jpeg" class="rounded" alt="mexican">
+                                        <p class="text-center text-white">Mexican</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/pizza.jpeg" class="rounded" alt="pizza">
+                                        <p class="text-center text-white">Pizza</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/sushi.jpeg" class="rounded" alt="sushi">
+                                        <p class="text-center text-white">Sushi</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/vegitarian.jpeg" class="rounded" alt="vegitarian">
+                                        <p class="text-center text-white">Vegitarian</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/steak.jpeg" class="rounded" alt="steak">
+                                        <p class="text-center text-white">Steak</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/fish.jpeg" class="rounded" alt="fish">
+                                        <p class="text-center text-white">Fish</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/salad.jpg" class="rounded" alt="salad">
+                                        <p class="text-center text-white">Salad</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/breakfast.jpeg" class="rounded" alt="breakfast">
+                                        <p class="text-center text-white">Breakfast</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/wraps.jpeg" class="rounded" alt="wraps">
+                                        <p class="text-center text-white">Wraps</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/bbq.jpeg" class="rounded" alt="bbq">
+                                        <p class="text-center text-white">BBQ</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/healthy.jpeg" class="rounded" alt="healthy food">
+                                        <p class="text-center text-white">Healthy</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/mediterranean.jpeg" class="rounded" alt="mediterranean">
+                                        <p class="text-center text-white">Mediterranean</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/sandwiches.jpeg" class="rounded" alt="subs">
+                                        <p class="text-center text-white">Sandwiches</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/soup.jpeg" class="rounded" alt="soup">
+                                        <p class="text-center text-white">Soup</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/wings.jpeg" class="rounded" alt="wings">
+                                        <p class="text-center text-white">Wings</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/deserts.jpeg" class="rounded" alt="deserts">
+                                        <p class="text-center text-white">Deserts</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/ice-cream.jpeg" class="rounded" alt="ice cream">
+                                        <p class="text-center text-white">Ice Cream</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/doughnuts.jpeg" class="rounded" alt="doughnuts">
+                                        <p class="text-center text-white">Doughnuts</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="food-image" src="./assets/img/vegan.jpeg" class="rounded" alt="vegan">
+                                        <p class="text-center text-white">Vegan</p>
+                                    </div>
+                                </div>
+                            </div>       
+                            
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div id="display" class="mb-2">
+                <div class="row">
+
+                </div>
             </div>
-            <div class="food-image_container">
-                <img class="food-image" src="./assets/img/burger.jpeg" class="rounded" alt="burger">
-                <p class="text-center">Burger</p>
-            </div>
+            
         </section>
         <!-- End section -->
     </main>
     <!-- End main content-->
-    
 
     <!-- jquery CDN link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Bootstrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Our javascript link -->
     <script src="assets/js/script.js"></script>
+    <!-- Google Places API Library -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL0ONLRPOIJpZzS8VClLzvoLmfINP1xnc&libraries=places&callback=activatePlacesSearch"></script> 
 </body>
+
 </html>
