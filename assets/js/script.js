@@ -1,5 +1,3 @@
-// get the value of the city input from user
-const zip = $("#searchCity").val().trim();
 let menuFn = null
 
 function activatePlacesSearch() {
