@@ -4,7 +4,6 @@ const zip = $("#searchZip").val().trim();
 // get the value of the search input from user
 const searchMenuItem = $("#menuSearch").val().trim();
 
-
 function activatePlacesSearch() {
 	let input = document.getElementById('searchZip');
 	let autocomplete = new google.maps.places.Autocomplete(input, {types: ['(cities)']});
@@ -64,8 +63,55 @@ function getMenuItems(menuSearchItem, lat, lng) {
 	
 	$.ajax(menuSearch).done(function (response) {
 		console.log(response);
+
+		let result = response.result.data;
+		for(let i = 0; i < result.length; i++){
+			console.log(result[i])
+			console.log(result[i].restaurant_name)
+			console.log(result[i].menu_item_name)
+
+			// create html elements for a bootstrap card
+			let col = $("<div>").addClass("col-md-3");
+			let card = $("<div>").addClass("card bg-primary text-white");
+			let body = $("<div>").addClass("card-body p-2");
+
+			let title = $("<h5>").addClass("card-title").text("Restaurant Name: " + result[i].restaurant_name);
+
+			// let img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
+
+			let p1 = $("<p>").addClass("card-text").text("Food: " + result[i].menu_item_name);
+
+			// merge together and put on page
+			col.append(card.append(body.append(title, p1)));
+			$("#display").append(col);
+
+		}
 	});
 }
+
+// function buildHTML(){
+// 	// loop over all 
+// 	for (var i = 0; i < data.list.length; i++) {
+// 		// only look at forecasts around 3:00pm
+// 		if (data.list[i].dt_txt.indexOf("15:00:00") !== -1) {
+// 			// create html elements for a bootstrap card
+// 			var col = $("<div>").addClass("col-md-2");
+// 			var card = $("<div>").addClass("card bg-primary text-white");
+// 			var body = $("<div>").addClass("card-body p-2");
+
+// 			var title = $("<h5>").addClass("card-title").text(new Date(data.list[i].dt_txt).toLocaleDateString());
+
+// 			var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
+
+// 			var p1 = $("<p>").addClass("card-text").text("Temp: " + data.list[i].main.temp_max + " °F");
+// 			var p2 = $("<p>").addClass("card-text").text("Humidity: " + data.list[i].main.humidity + "%");
+
+// 			// merge together and put on page
+// 			col.append(card.append(body.append(title, img, p1, p2)));
+// 			$("#forecast .row").append(col);
+// 		}
+// 	}	
+// }
 
 // would like to add a search by city function
 // need to hide initial landing page div and show everything else
