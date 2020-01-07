@@ -75,11 +75,11 @@ function getMenuItems(menuSearchItem, lat, lng) {
 			let card = $("<div>").addClass("card mt-3 bg-light");
 			let body = $("<div>").addClass("card-body p-2");
 
-			let title = $("<h4>").addClass("card-title text-dark pb-2").text("Restaurant Name: " + result[i].restaurant_name);
+			let title = $("<h4>").addClass("card-title text-dark pb-3 pt-2").text("Restaurant Name: " + result[i].restaurant_name);
 
 			let img = $("<img>").attr("src", "assets/img/vintage-restaurant.jpg");
 
-			let p1 = $("<p>").addClass("card-text text-info pt-2").text("Food: " + result[i].menu_item_name);
+			let p1 = $("<p>").addClass("card-text text-info pt-3 pb-2").text("Food: " + result[i].menu_item_name);
 
 			// merge together and put on page
 			col.append(card.append(body.append(title, img, p1)));
