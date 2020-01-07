@@ -1,8 +1,6 @@
 // get the value of the city input from user
 const zip = $("#searchCity").val().trim();
-
-// get the value of the search input from user
-const searchMenuItem = $("#menuSearch").val().trim();
+let menuFn = null
 
 function activatePlacesSearch() {
 	let input = document.getElementById('searchCity');
@@ -14,7 +12,7 @@ function activatePlacesSearch() {
 		let lat = place.geometry.location.lat();
 		let lng = place.geometry.location.lng();
 
-		getMenuItems(searchMenuItem, lat, lng);
+		menuFn = menuThing(lat, lng)
 	});
 }
 
@@ -44,51 +42,53 @@ $("#searchBtn").on("click", function(event) {
 $("#menuSearchBtn").on("click", function(event) {
 	event.preventDefault();
 	
+	menuFn($(menuSearch).val())
+
 	// clear input box
 	$(menuSearch).val("");
 
-	getMenuItems(searchMenuItem, lat, lng)
-
 });
 
-function getMenuItems(menuSearchItem, lat, lng) {
-	const menuSearch = {
-		"async": true,
-		"crossDomain": true,
-		"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?q=${menuSearchItem}&lat=${lat}&lon=${lng}&distance=10`,
-		"method": "GET",
-		"headers": {
-			"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
-			"x-rapidapi-key": "bc537ea7d1msh93abd71cf6a16a9p1cc331jsn99a8e1f89000"
+function menuThing (lat, lng) {
+	return function (item) {
+		const menuSearch = {
+			"async": true,
+			"crossDomain": true,
+			"url": `https://us-restaurant-menus.p.rapidapi.com/menuitems/search?q=${item}&lat=${lat}&lon=${lng}&distance=10`,
+			"method": "GET",
+			"headers": {
+				"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
+				"x-rapidapi-key": "bc537ea7d1msh93abd71cf6a16a9p1cc331jsn99a8e1f89000"
+			}
 		}
-	}
+		
+		$.ajax(menuSearch).done(function (response) {
+			console.log(response);
 	
-	$.ajax(menuSearch).done(function (response) {
-		console.log(response);
-
-		let result = response.result.data;
-		for(let i = 0; i < result.length; i++){
-			console.log(result[i])
-			console.log(result[i].restaurant_name)
-			console.log(result[i].menu_item_name)
-
-			// create html elements for a bootstrap card
-			let col = $("<div>").addClass("col-md-4");
-			let card = $("<div>").addClass("card mt-3 bg-light");
-			let body = $("<div>").addClass("card-body p-2");
-
-			let title = $("<h4>").addClass("card-title text-dark pb-3 pt-2").text("Restaurant Name: " + result[i].restaurant_name);
-
-			let img = $("<img>").attr("src", "assets/img/vintage-restaurant.jpg");
-
-			let p1 = $("<p>").addClass("card-text text-info pt-3 pb-2").text("Food: " + result[i].menu_item_name);
-
-			// merge together and put on page
-			col.append(card.append(body.append(title, img, p1)));
-			$("#display").append(col);
-
-		}
-	});
+			let result = response.result.data;
+			for(let i = 0; i < result.length; i++){
+				console.log(result[i])
+				console.log(result[i].restaurant_name)
+				console.log(result[i].menu_item_name)
+	
+				// create html elements for a bootstrap card
+				let col = $("<div>").addClass("col-md-4");
+				let card = $("<div>").addClass("card mt-3 bg-light");
+				let body = $("<div>").addClass("card-body p-2");
+	
+				let title = $("<h4>").addClass("card-title text-dark pb-3 pt-2").text("Restaurant Name: " + result[i].restaurant_name);
+	
+				let img = $("<img>").attr("src", "assets/img/vintage-restaurant.jpg");
+	
+				let p1 = $("<p>").addClass("card-text text-info pt-3 pb-2").text("Food: " + result[i].menu_item_name);
+	
+				// merge together and put on page
+				col.append(card.append(body.append(title, img, p1)));
+				$("#display").append(col);
+	
+			}
+		});
+	}
 }
 
 // would like to add a search by city function
