@@ -74,7 +74,7 @@ function menuThing (lat, lng) {
 				let card = $("<div>").addClass("card mt-3 mb-3 bg-light");
 				let body = $("<div>").addClass("card-body p-4");
 	
-				let title = $("<h4>").addClass("card-title text-dark pb-3 pt-2").text("Restaurant Name: " + result[i].restaurant_name);
+				let title = $("<h5>").addClass("card-title text-dark pb-3 pt-2").text("Restaurant Name: " + result[i].restaurant_name);
 	
 				let img = $("<img>").attr("src", "assets/img/vintage-restaurant.jpg");
 	
