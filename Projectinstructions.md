@@ -28,10 +28,18 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 * Concept: What is your user story? What was your motivation for development?
 
 * Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+Us restuarnt menus API from Rapid API
+Google place API
+get the lat and long save variables
+then curried the info into calling a function into a function 
 
 * Demo: Show your stuff!
 
 * Directions for Future Development
+ adding distance to pin point further
+ further filtering the food results
+ clickable images to seach the food instead of just being suggestions
+ cycle through each search result
 
 * Links to the deployed application and the GitHub repository
 
